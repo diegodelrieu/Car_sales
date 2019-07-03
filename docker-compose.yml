@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:alpine
+    env_file: .env
+    command: -p ${POSTGRES_PORT}
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    volumes:
+      - ./postgres/:/docker-entrypoint-initdb.d/
+      - ./data/:/data/
+  app:
+    build: .
+    restart: always
+    env_file: .env
+    expose:
+      - 3001
+    ports:
+      - "${PORT}:${PORT}"
+    depends_on:
+      - db
