@@ -8,6 +8,7 @@ A `simple` :zap: web dashboard to monitor your car sales!
 
 - [Installation](#package-installation)
 - [Usage](#rocket-usage)
+- [Database](#cloud-database)
 
 ## :package: Installation
 
@@ -38,3 +39,11 @@ docker-compose up --build
 ## :rocket: Usage
 
 The app is all set up now, access it in your browser at `http://localhost:8000/`.
+
+## :cloud: Database
+
+To update the database, simply go into the `data` folder, replace `car_sales.csv` with your new file and restart with
+
+```sh
+docker-compose up --build
+```
