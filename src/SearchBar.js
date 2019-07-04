@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
 
   render() {
     let averageMileage = ''
-    if (this.state.avg) {
+    if (this.state.avg && this.state.brand) {
       averageMileage = `${this.state.brand} cars have an average of ${this.state.avg} km/year`
     }
     return (
