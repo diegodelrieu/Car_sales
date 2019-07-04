@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
   
   handleChange(event) {
     this.setState({ brand: event.target.value });
+    this.setState({ avg: '' });
   }
 
   handleSubmit(event) {
