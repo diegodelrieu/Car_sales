@@ -9,16 +9,14 @@ class SearchBar extends React.Component {
       brand: '',
       avg: '',
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ brand: event.target.value });
     this.setState({ avg: '' });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     fetch(`/api/mileage?brand=${encodeURIComponent(this.state.brand)}`)
       .then(response => response.json())

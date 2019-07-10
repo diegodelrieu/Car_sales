@@ -14,19 +14,17 @@ class App extends Component {
       cars: [],
       date: ''
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   getDateFromTable = (dataFromChild) => {
     this.setState({ date: dataFromChild })
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ brand: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     fetch(`/api/mileage?brand=${encodeURIComponent(this.state.brand)}`)
       .then(response => response.json())

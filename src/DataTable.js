@@ -9,10 +9,9 @@ class DataTable extends React.Component {
       data: [],
       date: ''
     };
-    this.onFiltersChange = this.onFiltersChange.bind(this);
   }
 
-  onFiltersChange(value) {
+  onFiltersChange = (value) => {
     if (value.length === 10) {
       this.setState({ date: value })
       this.props.callBackFromParent(value)
