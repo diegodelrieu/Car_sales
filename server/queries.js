@@ -1,4 +1,5 @@
 const db = require('./db')
+const brands = ["Citroën", "Ford", "Volkswagen", "Renaud", "Tata", "Peugeot", "Nissan", "Tesla", "Citroen"]
 
 const getCars = (req, res) => {
   db.query('SELECT * FROM cars ORDER BY id ASC')
@@ -8,9 +9,14 @@ const getCars = (req, res) => {
 
 const getMileageByBrand = (req, res) => {
   const brand = req.query.brand
-  db.query(`SELECT AVG("km_year") FROM cars WHERE "car_brand" = '${brand}'`)
-    .then(results => res.status(200).json(results.rows))
-    .catch(e => console.error(e.stack))
+  if (!brands.includes(brand)) {
+    res.status(404)
+    .send("Not found");
+  } else {
+    db.query(`SELECT AVG("km_year") FROM cars WHERE "car_brand" = '${brand}'`)
+      .then(results => res.status(200).json(results.rows))
+      .catch(e => console.error(e.stack))
+  }
 }
 
 const getSalesByBrand = (req, res) => {
