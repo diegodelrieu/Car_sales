@@ -9,6 +9,7 @@ A `simple` :zap: web dashboard to monitor your car sales!
 - [Installation](#package-installation)
 - [Usage](#rocket-usage)
 - [Database](#cloud-database)
+- [Test](#memo-test)
 
 ## :package: Installation
 
@@ -47,3 +48,16 @@ To update the database, simply go into the `data` folder, replace `car_sales.csv
 ```sh
 docker-compose up --build
 ```
+## :memo: Test
+
+To test the API, first open your docker terminal with 
+
+```sh
+docker exec -it $your_container_name bash
+```
+then start the tests with 
+
+```sh
+npm run test
+```
+
